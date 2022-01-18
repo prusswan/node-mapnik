@@ -17,8 +17,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-20.04]
-        node: [12, 14]
+        os:
+          - ubuntu-latest
+          - macos-latest
+          
+        node_version:
+          - 12
+          - 14
+          - 16
+        architecture:
+          - x64
 
     permissions:
       contents: read
@@ -58,6 +66,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
+          architecture: ${{ matrix.architecture }}
       - run: npm install
       #- run: npm test
 
