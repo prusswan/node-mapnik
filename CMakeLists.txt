@@ -18,7 +18,7 @@ include(FetchContent)
 FetchContent_Declare(
   napi_modules
   GIT_REPOSITORY https://github.com/mathisloge/cmake-napi.git
-  GIT_TAG        70ebe32f098a13e207a43ec1e3292b78e53e3d57
+  GIT_TAG        410b97035455afc79e3fafabe90373070c57cb51
 )
 FetchContent_Declare(
   mapnik_vector_tile
