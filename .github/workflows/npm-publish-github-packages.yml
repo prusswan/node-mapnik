@@ -76,9 +76,12 @@ jobs:
       - run: npm install
       #- run: npm test
 
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          registry-url: 'https://npm.pkg.github.com'
+
       - name: publish
-        run: |
-          npm config set registry https://npm.pkg.github.com
-          npm publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
