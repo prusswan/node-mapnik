@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
 
-set(CXX_STANDARD 17)
-set(CXX_STANDARD_REQUIRED ON)
-set(CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_LIST_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake")
 
 project(node-mapnik)
