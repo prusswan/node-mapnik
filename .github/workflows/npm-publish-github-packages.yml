@@ -23,8 +23,8 @@ jobs:
 
           - os: ubuntu-latest
             mono: mono
-            architecture: x64]
-            node_version: 16]
+            architecture: x64
+            node_version: 16
 
           - os: macos-latest
             mono: mono
