@@ -8,6 +8,10 @@ project(node-mapnik)
 set(MAPBOX_WAGYU_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/deps/wagyu/include" CACHE INTERNAL "wagyu include dir")
 
 set(BUILD_TESTING OFF)
+set(CXX_STANDARD 17)
+set(CXX_STANDARD_REQUIRED ON)
+set(CXX_EXTENSIONS OFF)
+
 find_package(Threads REQUIRED)
 find_package(PkgConfig)
 pkg_check_modules(Cairo REQUIRED IMPORTED_TARGET cairo)
