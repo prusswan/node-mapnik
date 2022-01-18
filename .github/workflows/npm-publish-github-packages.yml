@@ -22,8 +22,6 @@ jobs:
           - macos-latest
 
         node_version:
-          - 12
-          - 14
           - 16
         architecture:
           - x64
@@ -74,7 +72,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           registry-url: https://npm.pkg.github.com/
-          
+
       - run: npm config set registry https://npm.pkg.github.com/
       - run: npm publish
         env:
