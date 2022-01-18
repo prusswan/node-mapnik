@@ -1,5 +1,5 @@
 {
-  "name": "mapnik",
+  "name": "@mathisloge/mapnik",
 
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "url": "http://github.com/mapnik/node-mapnik",
   "homepage": "http://mapnik.org",
   "author": "Dane Springmeyer <dane@mapbox.com> (mapnik.org)",
-  "version": "4.6.0",
+  "version": "4.6.1",
   "mapnik_version": "e553f55dc",
   "main": "./lib/mapnik.js",
   "binary": {

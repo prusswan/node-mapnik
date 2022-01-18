@@ -72,16 +72,12 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
           architecture: ${{ matrix.architecture }}
+          registry-url: 'https://registry.npmjs.org'
 
       - run: npm install
       #- run: npm test
 
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-          registry-url: 'https://npm.pkg.github.com'
-
       - name: publish
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_PAT}}
