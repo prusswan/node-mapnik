@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "@mapbox/sphericalmercator": "~1.0.2",
-    "@mathisloge/node-pre-gyp-github": "^1.0.2",
+    "@mathisloge/node-pre-gyp-github": "^1.0.5",
     "aws-sdk": "2.0.12",
     "bytes": "~2.1.0",
     "nyc": "^14.1.1",

@@ -16,14 +16,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os:
-          - windows-latest
-
-        node_version:
-          - 16
-        architecture:
-          - x64
+        architecture: [ x64 ]
+        node_version: [ 16 ]
         include:
+          - os: windows-latest
           - os: ubuntu-latest
             mono: mono 
           - os: macos-latest
@@ -35,7 +31,7 @@ jobs:
 
     steps:
       - uses: ilammy/msvc-dev-cmd@v1
-      
+
       - uses: actions/checkout@v2
 
       - name: checkout vcpkg
