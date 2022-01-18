@@ -1,11 +1,9 @@
 {
   "name": "@mathisloge/mapnik",
-
   "repository": {
     "type": "git",
     "url": "git://github.com/mathisloge/node-mapnik.git"
   },
-
   "description": "Tile rendering library for node",
   "url": "http://github.com/mapnik/node-mapnik",
   "homepage": "http://mapnik.org",
@@ -58,7 +56,7 @@
   },
   "devDependencies": {
     "@mapbox/sphericalmercator": "~1.0.2",
-    "@mathisloge/node-pre-gyp-github": "^1.0.5",
+    "@mathisloge/node-pre-gyp-github": "^1.0.6",
     "aws-sdk": "2.0.12",
     "bytes": "~2.1.0",
     "nyc": "^14.1.1",
