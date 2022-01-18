@@ -34,6 +34,8 @@ jobs:
       packages: write
 
     steps:
+      - uses: ilammy/msvc-dev-cmd@v1
+      
       - uses: actions/checkout@v2
 
       - name: checkout vcpkg
