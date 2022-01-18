@@ -26,10 +26,10 @@ jobs:
             architecture: x64
             node_version: 16
 
-          - os: macos-latest
-            mono: mono
-            architecture: x64
-            node_version: 16
+          #- os: macos-latest
+          #  mono: mono
+          #  architecture: x64
+          #  node_version: 16
 
     permissions:
       contents: read
