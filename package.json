@@ -1,5 +1,8 @@
 {
   "name": "mapnik",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "description": "Tile rendering library for node",
   "url": "http://github.com/mapnik/node-mapnik",
   "homepage": "http://mapnik.org",
