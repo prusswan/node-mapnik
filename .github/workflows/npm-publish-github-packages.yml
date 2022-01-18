@@ -53,7 +53,7 @@ jobs:
         shell: "bash"
         run: >
           ${{ env.mono }} `./vcpkg/vcpkg fetch nuget | tail -n 1`
-          setapikey "${{ secrets.NUGET_REGISTRY_PAT }}" -Source "${{ inputs.NUGET_REGISTRY }}"
+          setapikey "${{ secrets.NUGET_REGISTRY_PAT }}" -Source "${{ env.NUGET_REGISTRY }}"
 
       - uses: actions/setup-node@v2
         with:
