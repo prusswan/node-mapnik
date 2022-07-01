@@ -17,6 +17,37 @@ find_package(Protobuf REQUIRED)
 find_package(mapnik CONFIG REQUIRED COMPONENTS shapeindex mapnik-index)
 
 include(FetchContent)
+
+set(napi_node_mirror "https://nodejs.org/dist" CACHE STRING "nodejs download mirror")
+set(napi_iojs_mirror "https://iojs.org/dist" CACHE STRING "iojs download mirror")
+set(napi_electron_mirror "https://atom.io/download/atom-shell" CACHE STRING "electron download mirror")
+
+execute_process(COMMAND node "--version" OUTPUT_VARIABLE node_runtime_version)
+string(REPLACE "\n" "" node_runtime_version ${node_runtime_version})
+set(napi_runtime_version "${node_runtime_version}" CACHE STRING "node runtime version")
+message(STATUS "node runtime version: ${node_runtime_version}")
+message(STATUS "downloading node from ${napi_node_mirror}/${napi_runtime_version}/node-${napi_runtime_version}-headers.tar.gz")
+FetchContent_Declare(node_headers
+    URL "${napi_node_mirror}/${napi_runtime_version}/node-${napi_runtime_version}-headers.tar.gz"
+)
+FetchContent_MakeAvailable(node_headers)
+FetchContent_GetProperties(node_headers SOURCE_DIR node_headers_src)
+message(STATUS "headers src: ${node_headers_src}")
+set(node_root_dir ${node_headers_src} CACHE FILEPATH "node root dir")
+set(node_headers_inc_dir "${node_headers_src}/include/node" CACHE FILEPATH "include node")
+message(STATUS "headers first: ${node_headers_inc_dir}")
+
+
+file(READ "${node_headers_inc_dir}/node_version.h" m_file_cnt)
+
+string(REGEX MATCH "#define NAPI_VERSION *([0-9]*)" _ "${m_file_cnt}")
+set(napi_max_version ${CMAKE_MATCH_1})
+message(STATUS "napi max version: ${m_napi_version_file} -- ${CMAKE_MATCH_1} placeholder")
+set(NAPI_VERSION ${napi_max_version} CACHE STRING "used napi version" FORCE)
+message(STATUS "using napi version (root): ${NAPI_VERSION}")
+
+
+include(FetchContent)
 FetchContent_Declare(
   napi_modules
   GIT_REPOSITORY https://github.com/mathisloge/cmake-napi.git
@@ -38,8 +69,11 @@ execute_process(COMMAND node -p "require('node-addon-api').include"
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     OUTPUT_VARIABLE NODE_ADDON_API_DIR
 )
+message(STATUS "napi dir: ${NODE_ADDON_API_DIR}")
 string(REPLACE "\n" "" NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
 string(REPLACE "\"" "" NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
+
+message(STATUS "napi dir2: ${NODE_ADDON_API_DIR}")
 
 add_subdirectory(deps)
 mapnik_find_plugin_dir(MAPNIK_PLUGINS_DIR)
